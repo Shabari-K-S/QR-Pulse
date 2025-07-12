@@ -54,3 +54,7 @@ async def scan_from_file(file: UploadFile = File(...)):
     file_bytes = await file.read()
     result = scan_qr_from_file(file_bytes)
     return {"data": result} if result else {"error": "QR Code not found."}
+
+@app.get("/ping")
+async def ping():
+    return {"message": "pong"}
